@@ -6,6 +6,16 @@
 cargo build --release
 
 cargo install --path .
+
+export OPENWEATHER_API_KEY="your_api_key_here"
+```
+
+```powershell
+cargo build --release
+
+cargo install --path .
+
+[System.Environment]::SetEnvironmentVariable("OPENWEATHER_API_KEY", "your_api_key_here", "User")
 ```
 
 ## How to use

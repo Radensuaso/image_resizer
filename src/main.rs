@@ -3,7 +3,6 @@ mod resize_bulk_images;
 mod web_crawler;
 mod weather;
 
-use dotenv::dotenv;
 use resize_image::resize_image_to_mb;
 use resize_bulk_images::resize_images_in_folder;
 use std::env;
@@ -11,9 +10,6 @@ use std::path::Path;
 
 #[tokio::main]
 async fn main() {
-    // Load environment variables from the .env file
-    dotenv().ok();
-
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage:");
