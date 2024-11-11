@@ -11,7 +11,7 @@ cargo install --path .
 ## How to use
 
 ```bash
-image_resizer resize 1.5 input.jpg output.jpg
+image_resizer resize <mb> <input_image> <output_image>
 
-image_resizer resize_bulk mb input_folder output_folder
+image_resizer resize_bulk <mb> <input_folder> <output_folder>
 ```
