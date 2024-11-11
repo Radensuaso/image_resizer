@@ -1,7 +1,12 @@
 [package]
-name = "image_resizer"
+name = "tool_kit"
 version = "0.1.0"
+authors = ["radensuaso <radensuaso-portfolio.me>"]
 edition = "2021"
 
 [dependencies]
 image = "0.24.5"
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+scraper = "0.13"
+url = "2.2"

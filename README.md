@@ -1,4 +1,4 @@
-# Image Resizer
+# Tool Kit
 
 ## Install
 
@@ -11,7 +11,9 @@ cargo install --path .
 ## How to use
 
 ```bash
-image_resizer resize <mb> <input_image> <output_image>
+tool_kit resize_image <mb> <input_image> <output_image>
 
-image_resizer resize_bulk <mb> <input_folder> <output_folder>
+tool_kit resize_bulk_images <mb> <input_folder> <output_folder>
+
+tool_kit web_crawler <URL> <max_depth>
 ```
