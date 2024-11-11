@@ -1,20 +1,26 @@
-mod resize_bulk_images;
 mod resize_image;
+mod resize_bulk_images;
 mod web_crawler;
+mod weather;
 
-use resize_bulk_images::resize_images_in_folder;
+use dotenv::dotenv;
 use resize_image::resize_image_to_mb;
+use resize_bulk_images::resize_images_in_folder;
 use std::env;
 use std::path::Path;
 
 #[tokio::main]
 async fn main() {
+    // Load environment variables from the .env file
+    dotenv().ok();
+
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage:");
         eprintln!("  tool_kit resize_image <mb> <input_image> <output_image>");
         eprintln!("  tool_kit resize_bulk_images <mb> <input_folder> <output_folder>");
         eprintln!("  tool_kit web_crawler <URL> <max_depth>");
+        eprintln!("  tool_kit weather <city>");
         return;
     }
 
@@ -35,6 +41,11 @@ async fn main() {
         let max_depth: usize = args[3].parse().expect("Invalid number for max depth");
         if let Err(e) = web_crawler::crawl(start_url, max_depth).await {
             eprintln!("Error during web crawling: {}", e);
+        }
+    } else if keyword == "weather" && args.len() == 3 {
+        let city = &args[2];
+        if let Err(e) = weather::fetch_weather(city).await {
+            eprintln!("Failed to fetch weather data: {}", e);
         }
     } else {
         eprintln!("Unknown or invalid command");

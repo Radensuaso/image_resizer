@@ -5,8 +5,11 @@ authors = ["radensuaso <radensuaso-portfolio.me>"]
 edition = "2021"
 
 [dependencies]
+dotenv = "0.15"
 image = "0.24.5"
 reqwest = { version = "0.11", features = ["json"] }
 tokio = { version = "1", features = ["full"] }
 scraper = "0.13"
 url = "2.2"
+serde = { version = "1.0", features = ["derive"] }
+chrono = "0.4"
